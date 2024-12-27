@@ -1,3 +1,2 @@
 # Credits
-MeMe
-MeMeA
+MeMe & MeMeA
