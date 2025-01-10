@@ -1,4 +1,4 @@
--- Created by Pyseph#0001 Modded by MeMeZ
+-- Created by Pyseph#0001
 
 local SpecialCharacters = {['\a'] = '\\a', ['\b'] = '\\b', ['\f'] = '\\f', ['\n'] = '\\n', ['\r'] = '\\r', ['\t'] = '\\t', ['\v'] = '\\v', ['\0'] = '\\0'}
 local Keywords = { ['and'] = true, ['break'] = true, ['do'] = true, ['else'] = true, ['elseif'] = true, ['end'] = true, ['false'] = true, ['for'] = true, ['function'] = true, ['if'] = true, ['in'] = true, ['local'] = true, ['nil'] = true, ['not'] = true, ['or'] = true, ['repeat'] = true, ['return'] = true, ['then'] = true, ['true'] = true, ['until'] = true, ['while'] = true, ['continue'] = true}
@@ -53,7 +53,7 @@ local function SerializeType(Value, Class)
 		return tostring(Value)
 	end
 end
-return function(Table, IgnoredTables, DepthData, Path)
+local function TableToString(Table, IgnoredTables, DepthData, Path)
 	IgnoredTables = IgnoredTables or {}
 	local CyclicData = IgnoredTables[Table]
 	if CyclicData then
@@ -103,3 +103,5 @@ return function(Table, IgnoredTables, DepthData, Path)
 
 	return IsEmpty and Result .. '}' or string.sub(Result,  1, -2) .. '\n' .. TrailingTab .. '}'
 end
+
+return TableToString
