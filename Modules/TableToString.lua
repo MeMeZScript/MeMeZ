@@ -1,4 +1,4 @@
--- Created by Pyseph#0001
+-- Created by Pyseph#0001 Modded by MeMe
 
 local SpecialCharacters = {['\a'] = '\\a', ['\b'] = '\\b', ['\f'] = '\\f', ['\n'] = '\\n', ['\r'] = '\\r', ['\t'] = '\\t', ['\v'] = '\\v', ['\0'] = '\\0'}
 local Keywords = { ['and'] = true, ['break'] = true, ['do'] = true, ['else'] = true, ['elseif'] = true, ['end'] = true, ['false'] = true, ['for'] = true, ['function'] = true, ['if'] = true, ['in'] = true, ['local'] = true, ['nil'] = true, ['not'] = true, ['or'] = true, ['repeat'] = true, ['return'] = true, ['then'] = true, ['true'] = true, ['until'] = true, ['while'] = true, ['continue'] = true}
@@ -98,7 +98,7 @@ local function TableToString(Table, IgnoredTables, DepthData, Path)
 		end
 
 		Value = ValueClass == 'table' and TableToString(Value, IgnoredTables, {Depth, Path}, Path .. (HasBrackets and '' or '.') .. Key) or SerializeType(Value, ValueClass)
-		Result = Result .. LineTab .. (HasOrder and Value or Key .. ' = ' .. Value) .. ','
+		Result = Result .. LineTab .. (HasOrder and Value or '["'..Key..'"]' .. ' = ' .. Value) .. ','
 	end
 
 	return IsEmpty and Result .. '}' or string.sub(Result,  1, -2) .. '\n' .. TrailingTab .. '}'
