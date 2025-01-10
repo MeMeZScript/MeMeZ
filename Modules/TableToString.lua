@@ -53,7 +53,7 @@ local function SerializeType(Value, Class)
 		return tostring(Value)
 	end
 end
-local function TableToString(Table, IgnoredTables, DepthData, Path)
+return function(Table, IgnoredTables, DepthData, Path)
 	IgnoredTables = IgnoredTables or {}
 	local CyclicData = IgnoredTables[Table]
 	if CyclicData then
