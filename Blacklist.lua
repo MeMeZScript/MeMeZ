@@ -1,3 +1,3 @@
 return {
-  ["Nigger"] = "Nigga"
+  ["yuanzi1910"] = "测试"
 }
